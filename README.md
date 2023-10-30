@@ -79,15 +79,15 @@ ret = api.login(userid=uid, password=pwd, twoFA=factor2, vendor_code=vc, api_sec
 ```
 Request Details :
 
-|Json Fields|Possible value|Description|
-| --- | --- | ---|
-|apkversion*||Application version.|
-|uid*||User Id of the login user|
-|pwd*||Sha256 of the user entered password.|
-|factor2*||OTP or TOTP|
-|vc*||Vendor code provided by noren team, along with connection URLs|
-|appkey*||Sha256 of  uid|vendor_key|
-|imei*||Send mac if users logs in for desktop, imei is from mobile|
+|Python Parameters|Json Fields|Possible value|Description|
+| --- | --- | --- | ---|
+|Handled in python Wrapper|apkversion*||Application version.|
+|userid|uid*||User Id of the login user|
+|password|pwd*||Sha256 of the user entered password.|
+|twoFA|factor2*||OTP or TOTP|
+|vendor_code|vc*||Vendor code provided by noren team, along with connection URLs|
+|api_secret|appkey*||Sha256 of  uid|vendor_key|
+|imei|imei*||Send mac if users logs in for desktop, imei is from mobile|
 |addldivinf||Optional field, Value must be in below format:|iOS - iosInfo.utsname.machine - iosInfo.systemVersion|Android - androidInfo.model - androidInfo.version|examples:|iOS - iPhone 8.0 - 9.0|Android - Moto G - 9 PKQ1.181203.01|
 |ipaddr||Optional field|
 |source|API||
@@ -193,7 +193,7 @@ Request Details :
 |bpprc||Book Profit Price applicable only if product is selected as B (Bracket order ) |
 |blprc||Book loss Price applicable only if product is selected as H and B (High Leverage and Bracket order ) |
 |trailprc||Trailing Price applicable only if product is selected as H and B (High Leverage and Bracket order ) |
-|amo||Yes , If not sent, of Not �Yes�, will be treated as Regular order. |
+|amo|amo||Yes , If not sent, of Not �Yes�, will be treated as Regular order. |
 |tsym2||Trading symbol of second leg, mandatory for price type 2L and 3L (use url encoding to avoid special char error for symbols like M&M)|
 |trantype2||Transaction type of second leg, mandatory for price type 2L and 3L|
 |qty2||Quantity for second leg, mandatory for price type 2L and 3L|
