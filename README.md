@@ -174,21 +174,21 @@ ret = api.place_order(buy_or_sell='B', product_type='C',
 ```
 Request Details :
 
-|Json Fields|Possible value|Description|
-| --- | --- | ---|
-|uid*||Logged in User Id|
-|actid*||Login users account ID|
-|exch*|NSE  / NFO / BSE / MCX|Exchange (Select from �exarr� Array provided in User Details response)|
-|tsym*||Unique id of contract on which order to be placed. (use url encoding to avoid special char error for symbols like M&M)|
-|qty*||Order Quantity |
-|prc*||Order Price|
-|trgprc||Only to be sent in case of SL / SL-M order.|
-|dscqty||Disclosed quantity (Max 10% for NSE, and 50% for MCX)|
-|prd*|C / M / H|Product name (Select from �prarr� Array provided in User Details response, and if same is allowed for selected, exchange. Show product display name, for user to select, and send corresponding prd in API call)|
-|trantype*|B / S|B -> BUY, S -> SELL|
-|prctyp*|LMT / MKT  / SL-LMT / SL-MKT / DS / 2L / 3L||||
-|ret*|DAY / EOS / IOC |Retention type (Show options as per allowed exchanges) |
-|remarks||Any tag by user to mark order.|
+|Python Parameter|Json Fields|Possible value|Description|
+| --- | --- | --- | ---|
+|userid|uid*||Logged in User Id|
+||actid*||Login users account ID|
+|exchange|exch*|NSE  / NFO / BSE / MCX|Exchange (Select from �exarr� Array provided in User Details response)|
+|tradingsymbol|tsym*||Unique id of contract on which order to be placed. (use url encoding to avoid special char error for symbols like M&M)|
+|quantity|qty*||Order Quantity |
+|price|prc*||Order Price|
+|trigger_price|trgprc||Only to be sent in case of SL / SL-M order.|
+|discloseqty|dscqty||Disclosed quantity (Max 10% for NSE, and 50% for MCX)|
+|product_type|prd*|C / M / H|Product name (Select from �prarr� Array provided in User Details response, and if same is allowed for selected, exchange. Show product display name, for user to select, and send corresponding prd in API call)|
+|buy_or_sell|trantype*|B / S|B -> BUY, S -> SELL|
+|price_type|prctyp*|LMT / MKT  / SL-LMT / SL-MKT / DS / 2L / 3L||||
+|retention|ret*|DAY / EOS / IOC |Retention type (Show options as per allowed exchanges) |
+|remarks|remarks||Any tag by user to mark order.|
 |ordersource|MOB / WEB / TT |Used to generate exchange info fields.|
 |bpprc||Book Profit Price applicable only if product is selected as B (Bracket order ) |
 |blprc||Book loss Price applicable only if product is selected as H and B (High Leverage and Bracket order ) |
