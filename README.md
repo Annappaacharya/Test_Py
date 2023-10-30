@@ -88,9 +88,9 @@ Request Details :
 |vendor_code|vc*||Vendor code provided by noren team, along with connection URLs|
 |api_secret|appkey*||Sha256 of  uid|vendor_key|
 |imei|imei*||Send mac if users logs in for desktop, imei is from mobile|
-|addldivinf||Optional field, Value must be in below format:|iOS - iosInfo.utsname.machine - iosInfo.systemVersion|Android - androidInfo.model - androidInfo.version|examples:|iOS - iPhone 8.0 - 9.0|Android - Moto G - 9 PKQ1.181203.01|
-|ipaddr||Optional field|
-|source|API||
+||addldivinf||Optional field, Value must be in below format:|iOS - iosInfo.utsname.machine - iosInfo.systemVersion|Android - androidInfo.model - androidInfo.version|examples:|iOS - iPhone 8.0 - 9.0|Android - Moto G - 9 PKQ1.181203.01|
+||ipaddr||Optional field|
+||source|API||
 
 
 Response Details :
