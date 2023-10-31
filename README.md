@@ -176,8 +176,8 @@ Request Details :
 
 |Python Parameter|Json Fields|Possible value|Description|
 | --- | --- | --- | ---|
-|userid|uid*||Logged in User Id|
-|Handled in a Python wrapper|actid*||Login users account ID|
+|Handled in Python wrapper|uid*||Logged in User Id|
+|Handled in Python wrapper|actid*||Login users account ID|
 |exchange|exch*|NSE  / NFO / BSE / MCX|Exchange (Select from �exarr� Array provided in User Details response)|
 |tradingsymbol|tsym*||Unique id of contract on which order to be placed. (use url encoding to avoid special char error for symbols like M&M)|
 |quantity|qty*||Order Quantity |
@@ -189,7 +189,7 @@ Request Details :
 |price_type|prctyp*|LMT / MKT  / SL-LMT / SL-MKT / DS / 2L / 3L||||
 |retention|ret*|DAY / EOS / IOC |Retention type (Show options as per allowed exchanges) |
 |remarks|remarks||Any tag by user to mark order.|
-|Handled in a Python wrapper|ordersource|MOB / WEB / TT |Used to generate exchange info fields.|
+|Handled in a Python wrapper|ordersource||Used to generate exchange info fields.|
 |bookprofit_price|bpprc||Book Profit Price applicable only if product is selected as B (Bracket order ) |
 |bookloss_price|blprc||Book loss Price applicable only if product is selected as H and B (High Leverage and Bracket order ) |
 |trail_price|trailprc||Trailing Price applicable only if product is selected as H and B (High Leverage and Bracket order ) |
@@ -239,13 +239,11 @@ Request Details :
 |Python Parameter|Json Fields|Possible value|Description|
 | --- | --- | --- | ---|
 |exchange|exch*||Exchange|
-|Handled in a Python wrapper|norenordno*||Noren order number, which needs to be modified|
+|orderno|norenordno*||Noren order number, which needs to be modified|
 |newprice_type|prctyp|LMT / MKT / SL-MKT / SL-LMT|This can be modified.|
 |newprice|prc||Modified / New price|
 |newquantity|qty||Modified / New Quantity||Quantity to Fill / Order Qty - This is the total qty to be filled for the order. Its Open Qty/Pending Qty plus Filled Shares (cumulative for the order) for the order.|* Please do not send only the pending qty in this field|
 |tradingsymbol|tsym*||Unque id of contract on which order was placed. Can�t be modified, must be the same as that of original order. (use url encoding to avoid special char error for symbols like M&M)|
-||ret|DAY / IOC / EOS|New Retention type of the order |
-|||||
 |newtrigger_price| trgprc||New trigger price in case of SL-MKT or SL-LMT|
 |Handled in a Python wrapper|uid*||User id of the logged in user.|
 |bookprofit_price|bpprc||Book Profit Price applicable only if product is selected as B (Bracket order ) |
