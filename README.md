@@ -88,8 +88,6 @@ Request Details :
 |vendor_code|vc*||Vendor code provided by noren team, along with connection URLs|
 |api_secret|appkey*||Sha256 of  uid|vendor_key|
 |imei|imei*||Send mac if users logs in for desktop, imei is from mobile|
-||addldivinf||Optional field, Value must be in below format:|iOS - iosInfo.utsname.machine - iosInfo.systemVersion|Android - androidInfo.model - androidInfo.version|examples:|iOS - iPhone 8.0 - 9.0|Android - Moto G - 9 PKQ1.181203.01|
-||ipaddr||Optional field|
 |Handled in python Wrapper|source|API||
 
 
@@ -189,7 +187,7 @@ Request Details :
 |price_type|prctyp*|LMT / MKT  / SL-LMT / SL-MKT / DS / 2L / 3L||||
 |retention|ret*|DAY / EOS / IOC |Retention type (Show options as per allowed exchanges) |
 |remarks|remarks||Any tag by user to mark order.|
-|Handled in a Python wrapper|ordersource||Used to generate exchange info fields.|
+|Handled in a Python wrapper|ordersource|API|Used to generate exchange info fields.|
 |bookprofit_price|bpprc||Book Profit Price applicable only if product is selected as B (Bracket order ) |
 |bookloss_price|blprc||Book loss Price applicable only if product is selected as H and B (High Leverage and Bracket order ) |
 |trail_price|trailprc||Trailing Price applicable only if product is selected as H and B (High Leverage and Bracket order ) |
