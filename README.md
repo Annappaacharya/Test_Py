@@ -238,7 +238,6 @@ Request Details :
 
 |Python Parameter|Json Fields|Possible value|Description|
 | --- | --- | --- | ---|
-
 |exchange|exch*||Exchange|
 |Handled in a Python wrapper|norenordno*||Noren order number, which needs to be modified|
 |newprice_type|prctyp|LMT / MKT / SL-MKT / SL-LMT|This can be modified.|
