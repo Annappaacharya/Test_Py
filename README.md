@@ -90,6 +90,11 @@ Request Details :
 |imei|imei*||Send mac if users logs in for desktop, imei is from mobile|
 |Handled in python Wrapper|source|API||
 
+| Header 1 | Header 2 | Header 3 | Header 4 |
+|----------|----------|----------|----------|
+| Data 1   | Data 2   | Data 3-5 (Merged) | Data 6 |
+| Data 7   | Data 8   | Data 9   | Data 10 |
+
 
 Response Details :
 
