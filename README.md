@@ -90,7 +90,7 @@ Request Details :
 |imei|imei*||Send mac if users logs in for desktop, imei is from mobile|
 ||addldivinf||Optional field, Value must be in below format:|iOS - iosInfo.utsname.machine - iosInfo.systemVersion|Android - androidInfo.model - androidInfo.version|examples:|iOS - iPhone 8.0 - 9.0|Android - Moto G - 9 PKQ1.181203.01|
 ||ipaddr||Optional field|
-||source|API||
+|Handled in python Wrapper|source|API||
 
 
 Response Details :
@@ -136,9 +136,9 @@ ret = api.logout()
 
 Request Details :
 
-|Json Fields|Possible value|Description|
-| --- | --- | ---|
-|uid*||User Id of the login user|
+|Python Parameter|Json Fields|Possible value|Description|
+| --- | --- | --- | ---|
+|Handled in a Python wrapper|uid*||User Id of the login user|
 
 Response Details :
 Response data will be in json format with below fields.
@@ -177,7 +177,7 @@ Request Details :
 |Python Parameter|Json Fields|Possible value|Description|
 | --- | --- | --- | ---|
 |userid|uid*||Logged in User Id|
-||actid*||Login users account ID|
+|Handled in a Python wrapper|actid*||Login users account ID|
 |exchange|exch*|NSE  / NFO / BSE / MCX|Exchange (Select from �exarr� Array provided in User Details response)|
 |tradingsymbol|tsym*||Unique id of contract on which order to be placed. (use url encoding to avoid special char error for symbols like M&M)|
 |quantity|qty*||Order Quantity |
@@ -189,20 +189,11 @@ Request Details :
 |price_type|prctyp*|LMT / MKT  / SL-LMT / SL-MKT / DS / 2L / 3L||||
 |retention|ret*|DAY / EOS / IOC |Retention type (Show options as per allowed exchanges) |
 |remarks|remarks||Any tag by user to mark order.|
-|ordersource|MOB / WEB / TT |Used to generate exchange info fields.|
-|bpprc||Book Profit Price applicable only if product is selected as B (Bracket order ) |
-|blprc||Book loss Price applicable only if product is selected as H and B (High Leverage and Bracket order ) |
-|trailprc||Trailing Price applicable only if product is selected as H and B (High Leverage and Bracket order ) |
+|Handled in a Python wrapper|ordersource|MOB / WEB / TT |Used to generate exchange info fields.|
+|bookprofit_price|bpprc||Book Profit Price applicable only if product is selected as B (Bracket order ) |
+|bookloss_price|blprc||Book loss Price applicable only if product is selected as H and B (High Leverage and Bracket order ) |
+|trail_price|trailprc||Trailing Price applicable only if product is selected as H and B (High Leverage and Bracket order ) |
 |amo|amo||Yes , If not sent, of Not �Yes�, will be treated as Regular order. |
-|tsym2||Trading symbol of second leg, mandatory for price type 2L and 3L (use url encoding to avoid special char error for symbols like M&M)|
-|trantype2||Transaction type of second leg, mandatory for price type 2L and 3L|
-|qty2||Quantity for second leg, mandatory for price type 2L and 3L|
-|prc2||Price for second leg, mandatory for price type 2L and 3L|
-|tsym3||Trading symbol of third leg, mandatory for price type 3L (use url encoding to avoid special char error for symbols like M&M)|
-|trantype3||Transaction type of third leg, mandatory for price type 3L|
-|qty3||Quantity for third leg, mandatory for price type 3L|
-|prc3||Price for third leg, mandatory for price type 3L|
-
 
 Response Details :
 
@@ -245,21 +236,22 @@ ret = api.modify_order(exchange='NSE', tradingsymbol='CANBK-EQ', orderno=orderno
 
 Request Details :
 
-|Json Fields|Possible value|Description|
-| --- | --- | ---|
-|exch*||Exchange|
-|norenordno*||Noren order number, which needs to be modified|
-|prctyp|LMT / MKT / SL-MKT / SL-LMT|This can be modified.|
-|prc||Modified / New price|
-|qty||Modified / New Quantity||Quantity to Fill / Order Qty - This is the total qty to be filled for the order. Its Open Qty/Pending Qty plus Filled Shares (cumulative for the order) for the order.|* Please do not send only the pending qty in this field|
-|tsym*||Unque id of contract on which order was placed. Can�t be modified, must be the same as that of original order. (use url encoding to avoid special char error for symbols like M&M)|
-|ret|DAY / IOC / EOS|New Retention type of the order |
-||||
-|trgprc||New trigger price in case of SL-MKT or SL-LMT|
-|uid*||User id of the logged in user.|
-|bpprc||Book Profit Price applicable only if product is selected as B (Bracket order ) |
-|blprc||Book loss Price applicable only if product is selected as H and B (High Leverage and Bracket order ) |
-|trailprc||Trailing Price applicable only if product is selected as H and B (High Leverage and Bracket order ) |
+|Python Parameter|Json Fields|Possible value|Description|
+| --- | --- | --- | ---|
+
+|exchange|exch*||Exchange|
+|Handled in a Python wrapper|norenordno*||Noren order number, which needs to be modified|
+|newprice_type|prctyp|LMT / MKT / SL-MKT / SL-LMT|This can be modified.|
+|newprice|prc||Modified / New price|
+|newquantity|qty||Modified / New Quantity||Quantity to Fill / Order Qty - This is the total qty to be filled for the order. Its Open Qty/Pending Qty plus Filled Shares (cumulative for the order) for the order.|* Please do not send only the pending qty in this field|
+|tradingsymbol|tsym*||Unque id of contract on which order was placed. Can�t be modified, must be the same as that of original order. (use url encoding to avoid special char error for symbols like M&M)|
+||ret|DAY / IOC / EOS|New Retention type of the order |
+|||||
+|newtrigger_price| trgprc||New trigger price in case of SL-MKT or SL-LMT|
+|Handled in a Python wrapper|uid*||User id of the logged in user.|
+|bookprofit_price|bpprc||Book Profit Price applicable only if product is selected as B (Bracket order ) |
+|bookloss_price|blprc||Book loss Price applicable only if product is selected as H and B (High Leverage and Bracket order ) |
+|trail_price|trailprc||Trailing Price applicable only if product is selected as H and B (High Leverage and Bracket order ) |
 
 Response Details :
 
@@ -1746,14 +1738,14 @@ ret = api.get_time_price_series(exchange='NSE', token='22', starttime=lastBusDay
 ```
 Request Details :
 
-|Json Fields|Possible value|Description|
-| --- | --- | ---|
-|uid*||Logged in User Id|
-|exch*||Exchange|
-|token*|||
-|st||Start time (seconds since 1 jan 1970)|
-|et||End Time (seconds since 1 jan 1970)|
-|intrv|�1�, �3�, �5�, �10�, �15�, �30�, �60�, �120�, �240�|Candle size in minutes (optional field, if not given assume to be �1�)|
+|Python Parameter|Json Fields|Possible value|Description|
+| --- | --- | --- | ---|
+|Handled in a Python wrapper|uid*||Logged in User Id|
+|exchange|exch*||Exchange|
+|token|token*|||
+|starttime|st||Start time (seconds since 1 jan 1970)|
+|endtime|et||End Time (seconds since 1 jan 1970)|
+|interval|intrv|�1�, �3�, �5�, �10�, �15�, �30�, �60�, �120�, �240�|Candle size in minutes (optional field, if not given assume to be �1�)|
 
 Response Details :
 
